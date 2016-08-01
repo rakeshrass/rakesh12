@@ -37,26 +37,25 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
 		
-		Dao Dao = new Dao();
+		
+		Dao dao = new Dao();
 		
 		RequestDispatcher dispatcher;
+		PrintWriter writer=response.getWriter();
 		
-		if( Dao.isValidUser(userID ,password) == true)
+		if( dao.isValidUser(userID,password) == true)
 		{
-			dispatcher = request.getRequestDispatcher("Home.html");
+			dispatcher=request.getRequestDispatcher("Home.html");
 			dispatcher.forward(request,response);
 			
 		}
 		else
 		{
-			
-			
-			System.out.println("Invalid credentials");
-			
-			PrintWriter writer = response.getWriter();
+	
 			
 			writer.println("please enter valid credentials");
 			
@@ -64,6 +63,6 @@ public class LoginServlet extends HttpServlet {
 			dispatcher.include(request,response);
 			
 		}
-		}
+	}
 	
 }

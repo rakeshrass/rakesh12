@@ -2,9 +2,9 @@ package com.rass.shopingcart;
 
 public class Dao {
 	
-	public boolean isValidUser(String id,String password)
+	public boolean isValidUser(String userID,String password)
 	{
-		if (id.equals("rass") &&  password.equals("rass"))
+		if (userID.equals("rass")&&password.equals("rass"))
 				
 		{
 			return true;
